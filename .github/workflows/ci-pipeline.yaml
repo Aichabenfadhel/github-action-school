@@ -2,6 +2,11 @@ name: CI Pipeline
 
 on:
   workflow_dispatch:
+  inputs:
+        skip-push:
+          type: boolean
+          description: Wether the step push to dockerhub will work or not
+          default: true
 
 jobs:
   lint-and-test:
@@ -46,4 +51,6 @@ jobs:
       - name: Build docker image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/github-action-school .
       - name: Push to Dockerhub
+        if: ${{ !inputs.skip-push}}
         run: docker push ${{ secrets.DOCKER_USERNAME }}/github-action-school
+        
