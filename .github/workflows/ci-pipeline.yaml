@@ -2,7 +2,7 @@ name: CI Pipeline
 
 on:
   workflow_dispatch:
-  inputs:
+    inputs:
         skip-push:
           type: boolean
           description: Wether the step push to dockerhub will work or not
