@@ -5,7 +5,7 @@ on:
     inputs:
         skip-push:
           type: boolean
-          description: Wether the step push to dockerhub will work or not
+          description: Wether to skip to push to dockerhub?
           default: true
 
 jobs:
